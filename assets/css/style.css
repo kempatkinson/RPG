@@ -1,0 +1,17 @@
+
+.fighterimg { 
+    width: 100%;
+    padding: 20px;
+}
+
+.fighter {
+    border: black 2px solid;
+    text-align: center;
+}
+#title {
+    text-align: center;
+}
+
+#pick {
+    text-align: center;
+}
