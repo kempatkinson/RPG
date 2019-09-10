@@ -18,56 +18,89 @@
             <h1 id=title> I Think You Should Leave RPG </h1>
         </div>
     </div>
-
-    <div class=row id=selection>
-        <div class="col-md-3" >
-            <div class=fighter>
-                <p> Random Guy in Hot Dog Suit</p>
+<!-- character select -->
+    <div class=row>
+        <div class="col-md-3">
+            <div id=hotdog>
+                Random Guy in Hot Dog Suit
                 <img class=fighterimg src="assets/images/hotdog.jpg">
                 <p> Health: </p>
             </div>
         </div>
         <div class="col-md-3">
-            <div class=fighter>
+            <div id=howie>
                 <p> Howie </p>
                 <img class=fighterimg src="assets/images/howie.jpg">
                 <p> Health: </p>
             </div>
         </div>
         <div class="col-md-3">
-            <div class=fighter>
+            <div id=organ>
                 <p> New Joe </p>
                 <img class=fighterimg src="assets/images/organ.png">
                 <p> Health: </p>
             </div>
         </div>
         <div class="col-md-3">
-            <div class=fighter>
+            <div id=stinky>
                 <p> Ruben </p>
                 <img class=fighterimg src="assets/images/stinky.jpg">
                 <p> Health: </p>
             </div>
         </div>
     </div>
+<!-- chosen character -->
     <div class=row>
-        <div class="col-md-12">
+        <div class="col-md-4">
             <h2 id=hero> Your Character </h2>
         </div>
     </div>
     <div class=row>
-        <div class="col-md-12">
-            <h2 id=enemies> Enemies to Attack </h2>
+            <div class="col-md-3">
+                <div id=selecthotdog class=hidden>
+                    <p> Random Guy in Hot Dog Suit</p>
+                    <img class=fighterimg src="assets/images/hotdog.jpg">
+                    <p> Health: </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div id=selecthowie class=hidden> 
+                    <p> Howie </p>
+                    <img class=fighterimg src="assets/images/howie.jpg">
+                    <p> Health: </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div id=selectorgan class=hidden>
+                    <p> New Joe </p>
+                    <img class=fighterimg src="assets/images/organ.png">
+                    <p> Health: </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div id=selectstinky class=hidden> 
+                    <p> Ruben </p>
+                    <img class=fighterimg src="assets/images/stinky.jpg">
+                    <p> Health: </p>
+                </div>
+            </div>
         </div>
-    </div>
+<!-- enemey select -->
     <div class=row>
         <div class="col-md-12">
-            <h2 id=fight> Battlefield </h2>
+            <h2> Enemies to Attack </h2>
+        </div>
+    </div>
+ <!-- chosen enemy -->   
+    <div class=row>
+        <div class="col-md-12">
+            <h2> Battlefield </h2>
         </div>
     </div>
     <button type="button" class="btn btn-danger">Attack</button>
     <div class=row>
         <div class="col-md-12">
-            <h2 id=defender> Defender </h2>
+            <h2> Defender </h2>
         </div>
     </div>
 

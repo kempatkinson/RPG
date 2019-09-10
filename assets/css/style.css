@@ -4,7 +4,7 @@
     padding: 20px;
 }
 
-.fighter {
+#hotdog,#howie,#stinky,#organ {
     border: black 2px solid;
     text-align: center;
 }
@@ -15,3 +15,48 @@
 #pick {
     text-align: center;
 }
+
+.chosen {
+    background-color: green;
+    border: black 2px solid;
+    text-align: center;
+    display: none;
+}
+
+.enemy {
+    background-color: red;
+    border: black 2px solid;
+    text-align: center;
+    display: none;
+
+}
+
+.chosenenemy {
+    background-color: black;
+    border: black 2px solid;
+    text-align: center;
+    color: white;
+    display: none;
+
+}
+
+.hidden {
+    display: none;
+}
+.shown {
+    display: normal;
+}
+
+
+#selecthotdog,#selecthowie,#selectstinky,#selectorgan {
+    border: black 2px solid;
+    text-align: center;
+    background-color: grey;
+}
+
+#enemyhotdog,#enemeyhowie,#enemystinky,#enemyorgan {
+    border: black 2px solid;
+    text-align: center;
+    background-color: grey;
+}
+
