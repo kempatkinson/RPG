@@ -32,6 +32,10 @@ $(document).ready(function () {
   $("#enemyhowie").hide();
   $("#enemystinky").hide();
   $("#enemyorgan").hide();
+  $("#defendhotdog").hide();
+  $("#defendhowie").hide();
+  $("#defendstinky").hide();
+  $("#defendorgan").hide();
   //hot dog is selected as character, 
   ($("#hotdog").on("click", function () {
     $("#hotdog").hide();
@@ -43,7 +47,7 @@ $(document).ready(function () {
     $("#enemystinky").show();
     $("#enemyorgan").show();
   }));
-    //howie is selected
+    //howie is selected as character
     ($("#howie").on("click", function () {
       $("#hotdog").hide();
       $("#howie").hide();
@@ -54,7 +58,7 @@ $(document).ready(function () {
       $("#enemystinky").show();
       $("#enemyorgan").show();
     }));
-    //organ
+    //organ as character
     ($("#organ").on("click", function () {
       $("#hotdog").hide();
       $("#howie").hide();
@@ -65,7 +69,7 @@ $(document).ready(function () {
       $("#enemystinky").show();
       $("#enemyhowie").show();
     }));
-    //stinky
+    //stinky as character
     ($("#stinky").on("click", function () {
       $("#hotdog").hide();
       $("#howie").hide();
@@ -75,6 +79,38 @@ $(document).ready(function () {
       $("#enemyhotdog").show();
       $("#enemyhowie").show();
       $("#enemyorgan").show();
+    }));
+    // enemy selection
+    ($("#enemystinky").on("click", function () {
+      $("#enemystinky").hide();
+      $("#enemyhotdog").hide();
+      $("#enemyhowie").hide();
+      $("#enemyorgan").hide();
+      $("#defendstinky").show();
+    }));
+    
+    ($("#enemyhotdog").on("click", function () {
+      $("#enemyhotdog").hide();
+      $("#enemystinky").hide();
+      $("#enemyorgan").hide();
+      $("#enemyhowie").hide();
+      $("#defendhotdog").show();
+    }));
+
+    ($("#enemyorgan").on("click", function () {
+      $("#enemyorgan").hide();
+      $("#enemystinky").hide();
+      $("#enemyhotdog").hide();
+      $("#enemyhowie").hide();
+      $("#defendorgan").show();
+    }));
+
+    ($("#enemyhowie").on("click", function () {
+      $("#enemyhowie").hide();
+      $("#enemyorgan").hide();
+      $("#enemyhotdog").hide();
+      $("#enemystinky").hide();
+      $("#defendhowie").show();
     }));
 
 });
