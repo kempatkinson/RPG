@@ -20,15 +20,12 @@
     background-color: green;
     border: black 2px solid;
     text-align: center;
-    display: none;
 }
 
 .enemy {
     background-color: red;
     border: black 2px solid;
     text-align: center;
-    display: none;
-
 }
 
 .chosenenemy {
