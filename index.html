@@ -19,70 +19,11 @@
         </div>
     </div>
     <!-- character select -->
-    <div class="row">
-        <div class="col-md-3">
-            <div id="hotdog">
-                Random Guy in Hot Dog Suit
-                <img class="fighterimg" src="assets/images/hotdog.jpg">
-                 Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="howie">
-                Howie
-                <img class="fighterimg" src="assets/images/howie.jpg">
-                Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="organ">
-                New Joe
-                <img class="fighterimg" src="assets/images/organ.png">
-                Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="stinky">
-                Ruben
-                <img class="fighterimg" src="assets/images/stinky.jpg">
-                Health:
-            </div>
-        </div>
-    </div>
+
     <!-- chosen character -->
     <div class="row">
         <div class="col-md-4">
             <h2> Your Character </h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div id="selecthotdog">
-                Random Guy in Hot Dog Suit
-                <img class="fighterimg" src="assets/images/hotdog.jpg">
-                 Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="selecthowie">
-                Howie
-                <img class="fighterimg" src="assets/images/howie.jpg">
-                Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="selectorgan">
-                New Joe
-                <img class="fighterimg" src="assets/images/organ.png">
-                Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="selectstinky">
-                Ruben
-                <img class="fighterimg" src="assets/images/stinky.jpg">
-                Health:
-            </div>
         </div>
     </div>
     
@@ -97,80 +38,28 @@
             <h2> Your Character </h2>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div id="enemyhotdog">
-                Random Guy in Hot Dog Suit
-                <img class="fighterimg" src="assets/images/hotdog.jpg">
-                 Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="enemyhowie">
-                Howie
-                <img class="fighterimg" src="assets/images/howie.jpg">
-                Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="enemyorgan">
-                New Joe
-                <img class="fighterimg" src="assets/images/organ.png">
-                Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="enemystinky">
-                Ruben
-                <img class="fighterimg" src="assets/images/stinky.jpg">
-                Health:
-            </div>
-        </div>
-    </div>
+
     <!-- chosen enemy -->
     <div class="row">
         <div class="col-md-12">
             <h2> Battlefield </h2>
         </div>
     </div>
-    <button type="button" class="btn btn-danger">Attack</button>
+    <button type="button" class="btn btn-danger" id="attack">Attack</button>
+    <div id = "battle">
+        <p> You attacked the enemy for <span id= "chosendamage"> 0 </span> damage </p>
+        <p> The enemy counter attacked for <span id= "defenderdamage"> 0 </span> damage </p>
+    </div>
     <!-- defending enemy-->
-    <div class=row>
+    <div class="row">
         <div class="col-md-12">
             <h2> Defender </h2>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div id="defendhotdog">
-                Random Guy in Hot Dog Suit
-                <img class="fighterimg" src="assets/images/hotdog.jpg">
-                 Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="defendhowie">
-                Howie
-                <img class="fighterimg" src="assets/images/howie.jpg">
-                Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="defendorgan">
-                New Joe
-                <img class="fighterimg" src="assets/images/organ.png">
-                Health:
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="defendstinky">
-                Ruben
-                <img class="fighterimg" src="assets/images/stinky.jpg">
-                Health:
-            </div>
-        </div>
-    </div>
+    
     <script type="text/javascript" src="assets/java/game.js"></script>
+
+
 </body>
 
 </html>
