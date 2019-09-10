@@ -3,34 +3,15 @@
     text-align: center;
 }
 
-.fighterimg { 
+
+.character {
+    border: black 2px solid;
+    text-align: center;
+}
+img {
     width: 100%;
 }
 
-#hotdog,#howie,#stinky,#organ {
-    border: black 2px solid;
-    text-align: center;
-}
-
-
-#selecthotdog,#selecthowie,#selectstinky,#selectorgan {
-    border: black 2px solid;
-    text-align: center;
-    background-color: grey;
-    
-}
-
-#enemyhotdog,#enemyhowie,#enemystinky,#enemyorgan {
-    border: black 2px solid;
-    text-align: center;
+.enemy {
     background-color: red;
 }
-
-#defendhotdog,#defendhowie,#defendstinky,#defendorgan {
-    border: black 2px solid;
-    text-align: center;
-    background-color: black;
-    color: white;
-}
-
-
