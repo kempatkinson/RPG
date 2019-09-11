@@ -6,10 +6,11 @@ $(document).ready(function () {
                 hp: 80,
                 ap: 15,
                 baseap: 15,
-                cap: 20,
+                cap: 15,
                 image: "assets/images/hotdog.jpg",
                 chose: false,
-                defender: false
+                defender: false,
+                dead: false
 
             },
             {
@@ -20,7 +21,8 @@ $(document).ready(function () {
                 cap: 10,
                 image: "assets/images/howie.jpg",
                 chose: false,
-                defender: false
+                defender: false,
+                dead: false
             },
             {
                 name: "Ruben",
@@ -30,17 +32,19 @@ $(document).ready(function () {
                 cap: 15,
                 image: "assets/images/stinky.jpg",
                 chose: false,
-                defender: false
+                defender: false,
+                dead: false
             },
             {
                 name: "New Joe",
                 hp: 60,
                 ap: 25,
                 baseap: 25,
-                cap: 25,
+                cap: 20,
                 image: "assets/images/organ.png",
                 chose: false,
-                defender: false
+                defender: false,
+                dead: false
             }
         ],
 
@@ -125,6 +129,7 @@ $(document).ready(function () {
 
 
     }))
+
     $(document).on("click", "#attack", function () {
         for (var i = 0; i < game.characters.length; i++) {
             if (game.characters[i].defender == true) {
@@ -133,7 +138,6 @@ $(document).ready(function () {
 
             } else if (game.characters[i].chose == true) {
                 $("#chosendamage").text(game.characters[i].ap);
-                console.log(game.characters[i]);
                 var chosenindex = i;
             }
         }
@@ -142,17 +146,27 @@ $(document).ready(function () {
         game.characters[chosenindex].ap += game.characters[chosenindex].baseap;
         game.characters[chosenindex].hp -= game.characters[defenderindex].cap;
         ($("#health-"+game.characters[chosenindex].name).text("Character HP: " + game.characters[chosenindex].hp))
-        console.log(game.characters[chosenindex])
-        console.log(game.characters[defenderindex])
-        if (game.characters[defenderindex].hp <= 0) {
+        if ((game.characters[defenderindex].hp <= 0) && (game.characters[chosenindex].hp > 0)) {
             $(".defender-here").empty();
             existingdefender= false;
-            alert("You're doing the best at this! Pick another")
+            game.characters[defenderindex].dead = true;
+            alert("You're doing the best at this! Enemey defeated!")
         } 
         if (game.characters[chosenindex].hp <= 0) {
-            alert("You flinched! Now you have to marry your mother in law. Loser!")
+            alert("You flinched! Now you have to marry your mother in law. Refresh to try again.")
 
         }
+        var deadcount = 0;
+        for (var i = 0; i < game.characters.length; i++) {
+            if (game.characters[i].dead == true) {
+                deadcount++; 
+            } 
+        }
+        if (deadcount == 3) {
+            alert("You are the most popular now! You win!")
+        }
+        console.log(deadcount)
+        
 
 
 
