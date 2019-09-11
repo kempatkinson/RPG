@@ -7,11 +7,23 @@
 .character {
     border: black 2px solid;
     text-align: center;
+    padding-bottom: 20px;
 }
 img {
     width: 100%;
 }
 
+.chosen {
+    background-color: grey;
+    border: black 2px solid;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
 .enemy {
     background-color: red;
+}
+.defender {
+    background-color: black;
+    color: white;
 }
