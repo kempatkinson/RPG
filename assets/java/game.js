@@ -3,36 +3,40 @@ $(document).ready(function () {
         characters: [
             {
                 name: "Hotdog",
-                index: 0,
-                hp: 70,
-                ap: 110,
-                cap: 70,
+                hp: 80,
+                ap: 15,
+                cap: 20,
                 image: "assets/images/hotdog.jpg",
+                chose: false,
+                defender: false
 
             },
             {
                 name: "Howie",
-                index: 1,
-                hp: 150,
-                ap: 90,
-                cap: 90,
-                image: "assets/images/howie.jpg"
+                hp: 90,
+                ap: 20,
+                cap: 10,
+                image: "assets/images/howie.jpg",
+                chose: false,
+                defender: true
             },
             {
                 name: "Ruben",
-                index: 2,
-                hp: 100,
-                ap: 120,
-                cap: 60,
-                image: "assets/images/stinky.jpg"
+                hp: 70,
+                ap: 25,
+                cap: 15,
+                image: "assets/images/stinky.jpg",
+                chose: false,
+                defender: false
             },
             {
                 name: "New Joe",
-                index: 3,
-                hp: 80,
-                ap: 120,
-                cap: 100,
-                image: "assets/images/organ.png"
+                hp: 60,
+                ap: 25,
+                cap: 25,
+                image: "assets/images/organ.png",
+                chose: false,
+                defender: false
             }
         ],
 
@@ -41,11 +45,23 @@ $(document).ready(function () {
             hp: 0,
             ap: 0,
             cap: 0,
-            image: ""
+            image: "",
+            chosen: true
         },
 
         printSelected: function () {
-            $('#selected-area').html("<img src='" + this.characterSelected.image + "' />")
+            var makeADiv = $('<div>');
+            //add classes and id to that div
+            makeADiv.attr('class', 'col-md-3 character');
+            //add text
+            makeADiv.text(this.name);
+            //add image to div
+            var image = $('<img>');
+            image.attr('src', this.image);
+            makeADiv.append(image);
+            makeADiv.append(this.hp);
+            //add to the page
+            $(".characters-here").append(makeADiv)
 
         },
 
@@ -62,6 +78,7 @@ $(document).ready(function () {
                 image.attr('src', this.characters[i].image);
                 makeADiv.append(image);
                 makeADiv.append(this.characters[i].hp);
+                makeADiv.attr("id", this.characters[i].name);
                 //add to the page
                 $('.characters-here').append(makeADiv)
             }
@@ -70,21 +87,80 @@ $(document).ready(function () {
 
 
     game.printEveryone();
-    
+
     ($(".character").on("click", function () {
         $(this).addClass("chosen");
-        $(this).removeClass("character")
         $(this).detach().appendTo('.chosen-here');
-        $(".characters-here").addClass("enemy");
-        $(".characters-here").detach().appendTo('.enemies-here');
-    }))
-    ($(".enemy").on("click", function () {
-        $(this).addClass("defender");
-        $(this).detach().appendTo('.defenders-here');
+        $(".characters-here").empty();
+        for (var i = 0; i < game.characters.length; i++) {
+            if ($(this).attr('id') == game.characters[i].name) {
+                game.characters[i].chose = true;
+                console.log(game.characters[i]);
+                
+            } else {
+                //make a div
+                var makeADiv = $('<div>');
+                //add classes and id to that div
+                makeADiv.attr('class', 'col-md-3 character enemy');
+                //add text
+                makeADiv.text(game.characters[i].name);
+                //add image to div
+                var image = $('<img>');
+                image.attr('src', game.characters[i].image);
+                makeADiv.append(image);
+                makeADiv.append(game.characters[i].hp);
+                makeADiv.attr("id", game.characters[i].name);
+                //add to the page
+                $('.enemies-here').append(makeADiv)
+            }
+        }
+    
+
 
     }))
+        ($("#attack").on("click", function() {
+            for (var i = 0; i < game.characters.length; i++) {
+                if (game.characters[i].defender == true) {
+                    $("#defenderdamage").text(game.characters[i].cap);
+                    var defenderindex = i;
 
-    })
+                } else if (game.characters[i].chose == true) {
+                    $("#chosendamage").text(game.characters[i].ap);
+                    console.log(game.characters[i]);
+                    var chosenindex = i;
+                }
+            }
+            game.characters[defenderindex].hp -= game.characters[chosenindex].ap;
+            game.characters[chosenindex].ap = 2*game.characters[chosenindex].ap;
+            game.characters[chosenindex].hp -= game.characters[defenderindex].cap;
+            console.log(game.characters[chosenindex])
+            console.log(game.characters[defenderindex])
+            if (game.characters[defenderindex].hp < 0) {
+                $(".defender-here").empty();
+                alert('You killed them! Pick another')
+            } else if (game.characters[chosenindex].hp < 0) {
+                alert("You Lose!")
+
+            }
+
+
+
+                    
+                
+
+        }))
+
+        // ($(".enemy").on("click", function () {
+        //     $(this).addClass("defender");
+        //     $(this).detach().appendTo('.defender-here');
+        //     for (var i = 0; i < game.characters.length; i++) {
+        //         if ($(this).attr('id') == game.characters[i].name) {
+        //             game.characters[i].defender = true;
+        //             console.log(game.characters[i]);
+        //         }
+        //     }
+        // }))
+})
 
 
 
