@@ -5,6 +5,7 @@ $(document).ready(function () {
                 name: "Hotdog",
                 hp: 80,
                 ap: 15,
+                baseap: 15,
                 cap: 20,
                 image: "assets/images/hotdog.jpg",
                 chose: false,
@@ -15,15 +16,17 @@ $(document).ready(function () {
                 name: "Howie",
                 hp: 90,
                 ap: 20,
+                baseap: 20,
                 cap: 10,
                 image: "assets/images/howie.jpg",
                 chose: false,
-                defender: true
+                defender: false
             },
             {
                 name: "Ruben",
                 hp: 70,
                 ap: 25,
+                baseap: 25,
                 cap: 15,
                 image: "assets/images/stinky.jpg",
                 chose: false,
@@ -33,6 +36,7 @@ $(document).ready(function () {
                 name: "New Joe",
                 hp: 60,
                 ap: 25,
+                baseap: 25,
                 cap: 25,
                 image: "assets/images/organ.png",
                 chose: false,
@@ -77,7 +81,7 @@ $(document).ready(function () {
                 var image = $('<img>');
                 image.attr('src', this.characters[i].image);
                 makeADiv.append(image);
-                makeADiv.append(this.characters[i].hp);
+                makeADiv.append("<div id='health-" + game.characters[i].name + "'> Character HP: " + game.characters[i].hp + "</div>")
                 makeADiv.attr("id", this.characters[i].name);
                 //add to the page
                 $('.characters-here').append(makeADiv)
@@ -96,7 +100,7 @@ $(document).ready(function () {
             if ($(this).attr('id') == game.characters[i].name) {
                 game.characters[i].chose = true;
                 console.log(game.characters[i]);
-                
+
             } else {
                 //make a div
                 var makeADiv = $('<div>');
@@ -108,59 +112,68 @@ $(document).ready(function () {
                 var image = $('<img>');
                 image.attr('src', game.characters[i].image);
                 makeADiv.append(image);
-                makeADiv.append(game.characters[i].hp);
+                // makeADiv.append(game.characters[i].hp);
+                // these next 2 lines are the same!!
+                makeADiv.append("<div id='health-" + game.characters[i].name + "'> Character HP: " + game.characters[i].hp + "</div>");
+                // makeADiv.append(`<span id="health-${game.characters[i].name}>Character HP: ${game.characters[i].hp} </span>`);
                 makeADiv.attr("id", game.characters[i].name);
                 //add to the page
                 $('.enemies-here').append(makeADiv)
             }
         }
-    
+
 
 
     }))
-        ($("#attack").on("click", function() {
-            for (var i = 0; i < game.characters.length; i++) {
-                if (game.characters[i].defender == true) {
-                    $("#defenderdamage").text(game.characters[i].cap);
-                    var defenderindex = i;
+    $(document).on("click", "#attack", function () {
+        for (var i = 0; i < game.characters.length; i++) {
+            if (game.characters[i].defender == true) {
+                $("#defenderdamage").text(game.characters[i].cap);
+                var defenderindex = i;
 
-                } else if (game.characters[i].chose == true) {
-                    $("#chosendamage").text(game.characters[i].ap);
+            } else if (game.characters[i].chose == true) {
+                $("#chosendamage").text(game.characters[i].ap);
+                console.log(game.characters[i]);
+                var chosenindex = i;
+            }
+        }
+        game.characters[defenderindex].hp -= game.characters[chosenindex].ap;
+        ($("#health-"+game.characters[defenderindex].name).text("Character HP: " + game.characters[defenderindex].hp))
+        game.characters[chosenindex].ap += game.characters[chosenindex].baseap;
+        game.characters[chosenindex].hp -= game.characters[defenderindex].cap;
+        ($("#health-"+game.characters[chosenindex].name).text("Character HP: " + game.characters[chosenindex].hp))
+        console.log(game.characters[chosenindex])
+        console.log(game.characters[defenderindex])
+        if (game.characters[defenderindex].hp <= 0) {
+            $(".defender-here").empty();
+            existingdefender= false;
+            alert("You're doing the best at this! Pick another")
+        } 
+        if (game.characters[chosenindex].hp <= 0) {
+            alert("You flinched! Now you have to marry your mother in law. Loser!")
+
+        }
+
+
+
+
+
+
+    })
+    var existingdefender = false;
+    $(document).on("click", ".enemy", function () {
+        if (!existingdefender) {
+            existingdefender = true;
+            $(this).addClass("defender");
+            $(this).detach().appendTo('.defender-here');
+            for (var i = 0; i < game.characters.length; i++) {
+                if ($(this).attr('id') == game.characters[i].name) {
+                    game.characters[i].defender = true;
                     console.log(game.characters[i]);
-                    var chosenindex = i;
                 }
             }
-            game.characters[defenderindex].hp -= game.characters[chosenindex].ap;
-            game.characters[chosenindex].ap = 2*game.characters[chosenindex].ap;
-            game.characters[chosenindex].hp -= game.characters[defenderindex].cap;
-            console.log(game.characters[chosenindex])
-            console.log(game.characters[defenderindex])
-            if (game.characters[defenderindex].hp < 0) {
-                $(".defender-here").empty();
-                alert('You killed them! Pick another')
-            } else if (game.characters[chosenindex].hp < 0) {
-                alert("You Lose!")
-
-            }
-
-
-
-                    
-                
-
-        }))
-
-        // ($(".enemy").on("click", function () {
-        //     $(this).addClass("defender");
-        //     $(this).detach().appendTo('.defender-here');
-        //     for (var i = 0; i < game.characters.length; i++) {
-        //         if ($(this).attr('id') == game.characters[i].name) {
-        //             game.characters[i].defender = true;
-        //             console.log(game.characters[i]);
-        //         }
-        //     }
-        // }))
+        }
+    })
 })
-
 
 
