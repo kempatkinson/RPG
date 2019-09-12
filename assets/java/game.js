@@ -150,7 +150,7 @@ $(document).ready(function () {
             $(".defender-here").empty();
             existingdefender= false;
             game.characters[defenderindex].dead = true;
-            alert("You're doing the best at this! Enemey defeated!")
+            alert("You're doing the best at this! Enemy defeated!")
         } 
         if (game.characters[chosenindex].hp <= 0) {
             alert("You flinched! Now you have to marry your mother in law. Refresh to try again.")
