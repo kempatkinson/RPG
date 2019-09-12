@@ -3,7 +3,7 @@ $(document).ready(function () {
         characters: [
             {
                 name: "Hotdog",
-                hp: 80,
+                hp: 140,
                 ap: 15,
                 baseap: 15,
                 cap: 15,
@@ -15,7 +15,7 @@ $(document).ready(function () {
             },
             {
                 name: "Howie",
-                hp: 90,
+                hp: 150,
                 ap: 20,
                 baseap: 20,
                 cap: 10,
@@ -26,7 +26,7 @@ $(document).ready(function () {
             },
             {
                 name: "Ruben",
-                hp: 70,
+                hp: 130,
                 ap: 25,
                 baseap: 25,
                 cap: 15,
@@ -37,7 +37,7 @@ $(document).ready(function () {
             },
             {
                 name: "New Joe",
-                hp: 60,
+                hp: 120,
                 ap: 25,
                 baseap: 25,
                 cap: 20,
